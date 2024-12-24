@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
         <div className="container mx-auto flex justify-between items-center py-4 px-6">
           {/* Logo Section */}
-          <div className=" ml-[-5rem] flex items-center space-x-2">
+          <div className="  flex items-center space-x-2">
             <img
               src="src/assets/logo.png"
               alt="Include IT Logo"
