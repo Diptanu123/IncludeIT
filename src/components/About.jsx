@@ -3,9 +3,9 @@ export default function About() {
       <section id="about" className="bg-gray-50 py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-24">
         <div className="container mx-auto text-center">
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">About <span className="text-blue-600">Include IT</span></h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">About <span className="text-blue-600">IncludeIT</span></h2>
           <p className="text-lg md:text-xl text-gray-600 mb-8">
-            At <span className="font-semibold text-gray-800">Include IT</span>, we empower students with cutting-edge technical knowledge and hands-on skills to thrive in the digital era.
+            At <span className="font-semibold text-gray-800">IncludeIT</span>, we empower students with cutting-edge technical knowledge and hands-on skills to thrive in the digital era.
           </p>
   
           {/* Skills Grid */}
