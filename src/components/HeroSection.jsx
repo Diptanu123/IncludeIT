@@ -9,7 +9,7 @@ export default function HeroSection() {
             “An Institute with <span className="text-indigo-600">NITians</span> by <span className="text-indigo-600">NITians</span>”
           </h1>
           <p className="mt-6 text-lg text-gray-700 md:text-xl">
-            Empower your future with top-notch coaching and expert mentorship from industry leaders at <strong>Include IT</strong>.
+            Empower your future with top-notch coaching and expert mentorship from industry leaders at <strong>IncludeIT</strong>.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
             <a
@@ -35,7 +35,7 @@ export default function HeroSection() {
           <div className="relative group">
             <img
               className="object-cover rounded-xl shadow-xl w-full h-64 sm:h-80 md:h-96 lg:h-[500px] transition-transform transform group-hover:scale-105"
-              src="src/Photos/vecteezy_a-student-is-studying-with-the-teacher-on-a-laptop_8258674.jpg"
+              src="src/assets/DemoClass.jpg"
               alt="Include IT"
             />
             {/* Decorative Overlay */}
