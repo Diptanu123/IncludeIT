@@ -1,7 +1,9 @@
 import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Contact from './pages/Contact';
+import Enroll from './pages/EnrollPage';
 import HomePage from './pages/HomePage';
+import StudentsPage from './pages/StudentsPage';
+import GalleryPage from './pages/GalleryPage';
 function App() {
   return (
   <>
@@ -9,7 +11,9 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element= {<HomePage/>} />
-          <Route path='/contact' element= {<Contact/>} />
+          <Route path='/enroll' element= {<Enroll/>} />
+          <Route path='/students' element= {<StudentsPage/>} />
+          <Route path='/gallery' element= {<GalleryPage/>} />
         </Routes>
       </BrowserRouter>
   </>
