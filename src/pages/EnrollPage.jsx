@@ -12,7 +12,7 @@ function EnrollPage() {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900 py-20 min-h-screen flex items-center">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-4xl font-extrabold text-center mb-12 text-indigo-700">
+        <h2 className="text-4xl font-extrabold text-center mb-12 text-black">
           Register for Our Coaching Classes
         </h2>
         <div className="flex justify-center">

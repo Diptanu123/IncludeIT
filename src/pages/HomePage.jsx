@@ -5,10 +5,12 @@ import CoursesSection from '../components/CoursesSection'
 import FloatingSection from '../components/FloatingSection'
 import Contact from '../components/contact'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const HomePage = () => {
   return (
     <div>
+      <Navbar/>
         <HeroSection/>
         <About/>
         <Achievements/>

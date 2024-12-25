@@ -25,7 +25,7 @@ const Contact = () => {
             </p>
             <p className="text-lg text-gray-600 mb-4 hover:translate-x-1 transition-transform duration-300">
               <strong>📧 Email:</strong> 
-              <a href="mailto:info@example.com" className="text-cyan-600 underline"> info@example.com</a>
+              <a href="mailto:Saikat1236@gmail.com" className="text-cyan-600 underline">Saikat1236@gmail.com</a>
             </p>
             <p className="text-lg text-gray-600 mb-4 hover:translate-x-1 transition-transform duration-300">
               <strong>🌐 Website:</strong> 
@@ -80,7 +80,7 @@ const Contact = () => {
 
             {/* Call-to-Action Button */}
             <a
-              href="mailto:info@example.com"
+              href="mailto:Saikat1236@gmail.com"
               className="mt-8 px-6 py-3 bg-cyan-500 text-white font-semibold rounded-full shadow-md hover:bg-cyan-600 hover:shadow-lg transition-all duration-300 animate-bounce"
             >
               Send a Message 📧

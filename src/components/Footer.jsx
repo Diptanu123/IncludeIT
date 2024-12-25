@@ -48,12 +48,13 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6 mt-8 animate-fadeIn">
-          <p className="text-gray-400 text-center md:text-left text-sm">
-            Created by <strong className="text-cyan-500">Saikat Biswas</strong> |{' '}
-            <a href="mailto:info@example.com" className="hover:text-cyan-500 transition-colors duration-300">
-              info@example.com
-            </a>
-          </p>
+        <p className="text-gray-400 text-center md:text-left text-sm">
+  Created by <strong className="text-cyan-500">Saikat Biswas</strong> |{' '}
+  <a href="mailto:Saikat1236@gmail.com" className="hover:text-cyan-500 transition-colors duration-300">
+    Saikat1236@gmail.com
+  </a>
+</p>
+
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a
               href="/privacy-policy"

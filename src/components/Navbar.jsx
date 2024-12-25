@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -150,12 +151,12 @@ export default function Navbar() {
             Contact Us
           </a>
           {/* Enroll Button */}
-          <a
-            href="/enroll"
-            className="mt-2 px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
-          >
-            Enroll Now
-          </a>
+          <Link
+  to="/enroll"
+  className="mt-2 px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
+>
+  Enroll Now
+</Link>
         </div>
       </nav>
     </header>
