@@ -25,7 +25,7 @@ const CoursesSection = () => {
   }, []);
 
   return (
-    <section className={`${bgColor} py-12 bg-gradient-to-b from-white to-gray-100`}>
+    <section id="courses" className={`${bgColor} py-12 bg-gradient-to-b from-white to-gray-100`}>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-800 transition-all duration-300 hover:text-cyan-600">
           Our Courses

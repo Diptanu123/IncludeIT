@@ -45,7 +45,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#home"
+              href="/"
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300"
             >
               Home
@@ -70,7 +70,7 @@ export default function Navbar() {
             </a>
             {/* Enroll Button */}
             <a
-              href="#enroll"
+              href="/enroll"
               className="ml-4 px-5 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
             >
               Enroll Now
@@ -126,7 +126,7 @@ export default function Navbar() {
           }`}
         >
           <a
-            href="#home"
+            href="/"
             className="w-full text-center text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300 py-2"
           >
             Home
@@ -151,7 +151,7 @@ export default function Navbar() {
           </a>
           {/* Enroll Button */}
           <a
-            href="#enroll"
+            href="/enroll"
             className="mt-2 px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
           >
             Enroll Now

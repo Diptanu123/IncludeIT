@@ -3,6 +3,8 @@ import About from '../components/About'
 import Achievements from '../components/Achievement'
 import CoursesSection from '../components/CoursesSection'
 import FloatingSection from '../components/FloatingSection'
+import Contact from '../components/contact'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
   return (
@@ -11,7 +13,10 @@ const HomePage = () => {
         <About/>
         <Achievements/>
         <CoursesSection/>
+        <Contact/>
       <FloatingSection/>
+      <Footer/>
+      
     </div>
   )
 }
