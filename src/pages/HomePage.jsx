@@ -2,6 +2,7 @@ import HeroSection from '../components/HeroSection'
 import About from '../components/About'
 import Achievements from '../components/Achievement'
 import CoursesSection from '../components/CoursesSection'
+import FloatingSection from '../components/FloatingSection'
 
 const HomePage = () => {
   return (
@@ -10,7 +11,7 @@ const HomePage = () => {
         <About/>
         <Achievements/>
         <CoursesSection/>
-      
+      <FloatingSection/>
     </div>
   )
 }
