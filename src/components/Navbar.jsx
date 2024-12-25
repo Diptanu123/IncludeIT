@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo Section */}
           <div className="flex items-center space-x-2">
             <img
-              src="public/assets/logo.png"
+              src="logo.png"
               alt="Include IT Logo"
               className="h-10 w-auto"
             />

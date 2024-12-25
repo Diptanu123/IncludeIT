@@ -35,7 +35,7 @@ export default function HeroSection() {
           <div className="relative group">
             <img
               className="object-cover rounded-xl shadow-xl w-full h-64 sm:h-80 md:h-96 lg:h-[500px] transition-transform transform group-hover:scale-105"
-              src="public/assets/DemoClass.jpg"
+              src="DemoClass.jpg"
               alt="Include IT"
             />
             {/* Decorative Overlay */}
