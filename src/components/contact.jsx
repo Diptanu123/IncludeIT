@@ -62,18 +62,18 @@ const Contact = () => {
               Saikat Biswas is a seasoned <strong>Full Stack Web Developer</strong> at <strong>Drapo</strong>, with extensive experience in leading complex projects and building innovative solutions.
             </p>
             <p className="text-md text-gray-600 text-center leading-relaxed mb-4">
-              An <strong>NIT graduate (2023)</strong>, he blends technical brilliance with a problem-solving mindset to deliver exceptional outcomes.
+               <p> Lead Coach at Include IT. With over 3 years of experience in programming and teaching, Saikat specializes in C++, DSA, and Web & App Development.</p>
             </p>
 
             {/* Social Links */}
             <div className="flex space-x-4 mt-6 animate-fade-up">
-              <a href="#" className="text-gray-500 hover:text-cyan-600 text-2xl transition-colors duration-300">
+              <a href="https://www.linkedin.com/in/saikat1236/" className="text-gray-500 hover:text-cyan-600 text-2xl transition-colors duration-300">
                 🔗 <i className="fab fa-linkedin"></i>
               </a>
               <a href="#" className="text-gray-500 hover:text-cyan-600 text-2xl transition-colors duration-300">
                 🐦 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="text-gray-500 hover:text-cyan-600 text-2xl transition-colors duration-300">
+              <a href="https://github.com/saikat1236/" className="text-gray-500 hover:text-cyan-600 text-2xl transition-colors duration-300">
                 💻 <i className="fab fa-github"></i>
               </a>
             </div>

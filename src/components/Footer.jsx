@@ -28,7 +28,7 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/saikat1236/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-cyan-500 text-3xl transition-colors duration-300 transform hover:scale-110"
@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6 mt-8 animate-fadeIn">
         <p className="text-gray-400 text-center md:text-left text-sm">
-  Created by <strong className="text-cyan-500">Saikat Biswas</strong> |{' '}
+  Created by <strong className="text-cyan-500">Dip & Dhriti</strong> |{' '}
   <a href="mailto:Saikat1236@gmail.com" className="hover:text-cyan-500 transition-colors duration-300">
     Saikat1236@gmail.com
   </a>

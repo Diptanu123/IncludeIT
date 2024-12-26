@@ -13,7 +13,7 @@ export default function HeroSection() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
             <a
-              href="#"
+              href="/enroll"
               className="w-full sm:w-auto px-8 py-3 text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-md transform hover:scale-105 transition-transform"
             >
               Get Started
