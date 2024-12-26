@@ -1,7 +1,7 @@
 import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import EnrollPage from './pages/EnrollPage';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage.jsx';
 import StudentsPage from './pages/StudentsPage';
 import GalleryPage from './pages/GalleryPage';
 function App() {
