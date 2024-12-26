@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaCheckCircle, FaCalendarAlt, FaCode, FaDatabase, FaLaptopCode, FaPython, FaChartLine, FaBrain, FaBook } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
 const CoursesSection = () => {
   const [bgColor, setBgColor] = useState('bg-white'); // Default color
 
@@ -138,12 +138,12 @@ const CoursesSection = () => {
 
           {/* Join Us Today Section */}
           <div className="flex justify-center mt-16">
-            <a
-              href="/enroll"
-              className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 text-center w-full md:w-auto"
-            >
-              Join Us Today 🚀
-            </a>
+          <Link
+  to="/enroll"
+  className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 text-center w-full md:w-auto"
+>
+  Join Us Today 🚀
+</Link>
           </div>
         </div>
       </div>

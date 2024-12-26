@@ -70,12 +70,12 @@ export default function Navbar() {
               Contact Us
             </a>
             {/* Enroll Button */}
-            <a
-              href="/enroll"
-              className="ml-4 px-5 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
-            >
-              Enroll Now
-            </a>
+            <Link
+  to="/enroll"
+  className="ml-4 px-5 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
+>
+  Enroll Now
+</Link>
           </div>
 
           {/* Mobile Menu Button */}

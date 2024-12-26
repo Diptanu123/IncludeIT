@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
     <div className="relative bg-gradient-to-r from-blue-50 to-indigo-100 overflow-hidden">
@@ -12,12 +13,15 @@ export default function HeroSection() {
             Empower your future with top-notch coaching and expert mentorship from industry leaders at <strong>IncludeIT</strong>.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-            <a
-              href="/enroll"
-              className="w-full sm:w-auto px-8 py-3 text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-md transform hover:scale-105 transition-transform"
-            >
-              Get Started
-            </a>
+          
+
+<Link
+  to="/enroll"
+  className="w-full sm:w-auto px-8 py-3 text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-md transform hover:scale-105 transition-transform"
+>
+  Get Started
+</Link>
+
             <a
               href="#"
               className="w-full sm:w-auto px-8 py-3 text-lg font-medium text-indigo-700 bg-white border border-indigo-600 hover:bg-indigo-50 rounded-md shadow-md transform hover:scale-105 transition-transform"
