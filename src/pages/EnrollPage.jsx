@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function EnrollPage() {
   const [status, setStatus] = useState(""); // For showing success/error messages
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setStatus("Thank you! Your registration has been received.");
     e.target.reset(); // Clear the form fields after submission
+    setTimeout(() => {
+      navigate("/thank-you");
+    }, 100);
   };
 
   return (
