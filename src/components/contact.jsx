@@ -46,15 +46,15 @@ const Contact = () => {
               <img
                 src={coachImage}
                 alt="Saikat Biswas"
-                className="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-cyan-500 group-hover:scale-110 transition-transform duration-500"
+                className="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-indigo-600 group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute bottom-0 right-0 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium animate-bounce">
+              <div className="absolute bottom-0 right-0 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-medium animate-bounce">
                 Lead Coach
               </div>
             </div>
 
             {/* Profile Details */}
-            <h3 className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors duration-300">Saikat Biswas</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors duration-300">Saikat Biswas</h3>
             <p className="text-lg text-gray-600 font-medium mb-4 text-center">
               Founder & Tutor of <strong>INCLUDE-IT</strong>
             </p>
@@ -81,7 +81,7 @@ const Contact = () => {
             {/* Call-to-Action Button */}
             <a
               href="mailto:Saikat1236@gmail.com"
-              className="mt-8 px-6 py-3 bg-cyan-500 text-white font-semibold rounded-full shadow-md hover:bg-cyan-600 hover:shadow-lg transition-all duration-300 animate-bounce"
+              className="mt-8 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all duration-300 animate-bounce"
             >
               Send a Message 📧
             </a>

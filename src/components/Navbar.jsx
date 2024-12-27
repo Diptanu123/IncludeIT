@@ -1,12 +1,29 @@
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavigation = (target) => {
+    // Check if on the home page
+    if (location.pathname === '/') {
+      // Scroll to the target section on the current page
+      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home page and scroll to the target section
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100); // Slight delay to ensure DOM is rendered
+    }
   };
 
   useEffect(() => {
@@ -45,37 +62,40 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="/"
+            <button
+              onClick={() => handleNavigation('home')}
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300"
             >
               Home
-            </a>
-            <a
-              href="#about"
+            </button>
+            <button
+              onClick={() => handleNavigation('about')}
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300"
             >
               About
-            </a>
-            <a
-              href="#courses"
+            </button>
+            <button
+              onClick={() => handleNavigation('courses')}
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300"
             >
               Courses
-            </a>
-            <a
-              href="#contact"
+            </button>
+
+            {/* Contact Us */}
+            <button
+              onClick={() => handleNavigation('contact')}
               className="text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300"
             >
               Contact Us
-            </a>
+            </button>
+
             {/* Enroll Button */}
             <Link
-  to="/enroll"
-  className="ml-4 px-5 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
->
-  Enroll Now
-</Link>
+              to="/enroll"
+              className="ml-4 px-5 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
+            >
+              Enroll Now
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,37 +146,40 @@ export default function Navbar() {
             isMobileMenuOpen ? 'max-h-80 py-4' : 'max-h-0'
           }`}
         >
-          <a
-            href="/"
+          <button
+            onClick={() => handleNavigation('home')}
             className="w-full text-center text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300 py-2"
           >
             Home
-          </a>
-          <a
-            href="#about"
+          </button>
+          <button
+            onClick={() => handleNavigation('about')}
             className="w-full text-center text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300 py-2"
           >
             About
-          </a>
-          <a
-            href="#courses"
+          </button>
+          <button
+            onClick={() => handleNavigation('courses')}
             className="w-full text-center text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300 py-2"
           >
             Courses
-          </a>
-          <a
-            href="#contact"
+          </button>
+
+          {/* Contact Us */}
+          <button
+            onClick={() => handleNavigation('contact')}
             className="w-full text-center text-lg font-medium text-gray-700 hover:text-indigo-600 transition duration-300 py-2"
           >
             Contact Us
-          </a>
+          </button>
+
           {/* Enroll Button */}
           <Link
-  to="/enroll"
-  className="mt-2 px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
->
-  Enroll Now
-</Link>
+            to="/enroll"
+            className="mt-2 px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition duration-300 shadow-md"
+          >
+            Enroll Now
+          </Link>
         </div>
       </nav>
     </header>

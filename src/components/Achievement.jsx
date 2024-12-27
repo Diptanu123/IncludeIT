@@ -1,12 +1,13 @@
-
 export default function Achievements() {
   return (
     <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900">
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900">Our Achievements</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900 animate-fadeInUp">
+          Our Achievements
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Achievement 1 */}
-          <div className="relative bg-white hover:bg-gray-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 group">
+          <div className="relative bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-100">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               100+
             </div>
@@ -15,7 +16,7 @@ export default function Achievements() {
           </div>
 
           {/* Achievement 2 */}
-          <div className="relative bg-white hover:bg-gray-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 group">
+          <div className="relative bg-gradient-to-r from-red-50 to-red-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-200">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               50+
             </div>
@@ -24,7 +25,7 @@ export default function Achievements() {
           </div>
 
           {/* Achievement 3 */}
-          <div className="relative bg-white hover:bg-gray-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 group">
+          <div className="relative bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-300">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               10 LPA
             </div>
@@ -33,7 +34,7 @@ export default function Achievements() {
           </div>
 
           {/* Achievement 4 */}
-          <div className="relative bg-white hover:bg-gray-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 group">
+          <div className="relative bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-400">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               20+
             </div>
@@ -42,7 +43,7 @@ export default function Achievements() {
           </div>
 
           {/* Achievement 5 */}
-          <div className="relative bg-white hover:bg-gray-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 group">
+          <div className="relative bg-gradient-to-r from-green-50 to-green-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-500">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               5+
             </div>

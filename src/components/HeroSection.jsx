@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
-    <div className="relative bg-gradient-to-r from-blue-50 to-indigo-100 overflow-hidden">
+    <div id="home" className="relative bg-gradient-to-r from-blue-50 to-indigo-100 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         
         {/* Text Section */}
