@@ -140,7 +140,7 @@ const CoursesSection = () => {
           <div className="flex justify-center mt-16">
           <Link
   to="/enroll"
-  className="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105 text-center w-full md:w-auto"
+  className="inline-block bg-indigo-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition-transform transform hover:scale-105 text-center w-full md:w-auto"
 >
   Join Us Today 🚀
 </Link>
