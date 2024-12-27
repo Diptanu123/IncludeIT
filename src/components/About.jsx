@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className="bg-gradient-to-br from-blue-50 to-white border-gray-200 text-gray-800 py-12 px-4 md:px-8 lg:px-16">
+    <section id="about" className="bg-gradient-to-br from-cyan-50 to-white border-gray-200 text-gray-800 py-12 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Left Content */}
         <motion.div 

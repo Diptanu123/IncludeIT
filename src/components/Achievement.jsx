@@ -1,6 +1,6 @@
 export default function Achievements() {
   return (
-    <section className="py-16 bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900">
+    <section className="py-16 bg-gradient-to-br from-cyan-50 to-white text-gray-900">
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900 animate-fadeInUp">
           Our Achievements
