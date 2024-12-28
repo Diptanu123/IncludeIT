@@ -35,16 +35,16 @@ function ThankYouPage() {
 
       {/* Main Content */}
       <div className="bg-white shadow-md rounded-lg p-6 sm:p-10 max-w-2xl text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-indigo-600 mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-600 mb-4">
           🎉 Registration Successful!
         </h1>
-        <p className="text-md sm:text-lg text-gray-700 mb-6 leading-relaxed">
+        <p className="text-sm sm:text-md md:text-lg text-gray-700 mb-6 leading-relaxed">
           Thank you for registering. We have received your details and will get
           back to you soon.
         </p>
         <button
           onClick={() => navigate("/")}
-          className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-medium text-md sm:text-lg py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:scale-105 transform transition-transform duration-300"
+          className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-medium text-sm sm:text-md py-2 sm:py-3 px-4 sm:px-6 rounded-lg hover:scale-105 transform transition-transform duration-300"
         >
           Go to Home
         </button>

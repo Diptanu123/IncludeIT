@@ -61,7 +61,7 @@ const Contact = () => {
               Founder & Tutor of <strong>INCLUDE-IT</strong>
             </p>
             <p className="text-md text-gray-600 text-center leading-relaxed mb-4">
-              Saikat Biswas is a seasoned <strong>Full Stack Developer</strong> at <strong>KrishiMandi (IITK)</strong>, with extensive experience in leading complex projects and building innovative solutions.
+              Saikat Biswas is a seasoned <strong>Full Stack Developer</strong> at <strong>Drapo</strong>, with extensive experience in leading complex projects and building innovative solutions.
             </p>
             <p className="text-md text-gray-600 text-center leading-relaxed mb-4">
                <p> Lead Coach at Include IT. With over 3 years of experience in programming and teaching, Saikat specializes in C++, DSA, and Web & App Development.</p>
