@@ -20,16 +20,16 @@ const Contact = () => {
               <strong>🏢 Address:</strong> Pathfinder Institute, Near Ramnagar-3 Main Road, Above Aroma Cake Shop, Agartala, Tripura(W).
             </p>
             <p className="text-lg text-gray-600 mb-4 hover:translate-x-1 transition-transform duration-300">
-              <strong>📞 Phone:</strong> 
-              <a href="tel:+917085959167" className="text-cyan-600 underline"> 7085959167</a>
+              <strong>📞 Phone: </strong> 
+              <a href="tel:+917085959167" className="text-cyan-600 underline">  7085959167</a>
             </p>
             <p className="text-lg text-gray-600 mb-4 hover:translate-x-1 transition-transform duration-300">
-              <strong>📧 Email:</strong> 
-              <a href="mailto:Saikat1236@gmail.com" className="text-cyan-600 underline">Saikat1236@gmail.com</a>
+              <strong>📧 Email: </strong> 
+              <a href="mailto:saikat1236@gmail.com" className="text-cyan-600 underline">  saikat1236@gmail.com</a>
             </p>
             <p className="text-lg text-gray-600 mb-4 hover:translate-x-1 transition-transform duration-300">
-              <strong>🌐 Website:</strong> 
-              <a href="https://www.includeit.com" className="text-cyan-600 underline"> www.includeit.com</a>
+              <strong>🌐 Website: </strong> 
+              <a href="https://includeit.vercel.app/" className="text-cyan-600 underline">  www.includeit.vercel.app</a>
             </p>
             <p className="text-lg text-gray-700 mt-6 italic font-medium text-center md:text-left animate-pulse">
               📤 We're always here to assist you!
@@ -42,6 +42,8 @@ const Contact = () => {
             <div className="absolute -top-12 -right-12 w-40 h-40 bg-cyan-200 rounded-full blur-xl opacity-30"></div>
 
             {/* Profile Image */}
+            <a href="https://saikat-biswas.vercel.app/">
+
             <div className="relative mb-6">
               <img
                 src={coachImage}
@@ -52,14 +54,14 @@ const Contact = () => {
                 Lead Coach
               </div>
             </div>
-
+            </a>
             {/* Profile Details */}
             <h3 className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors duration-300">Saikat Biswas</h3>
             <p className="text-lg text-gray-600 font-medium mb-4 text-center">
               Founder & Tutor of <strong>INCLUDE-IT</strong>
             </p>
             <p className="text-md text-gray-600 text-center leading-relaxed mb-4">
-              Saikat Biswas is a seasoned <strong>Full Stack Web Developer</strong> at <strong>Drapo</strong>, with extensive experience in leading complex projects and building innovative solutions.
+              Saikat Biswas is a seasoned <strong>Full Stack Developer</strong> at <strong>KrishiMandi (IITK)</strong>, with extensive experience in leading complex projects and building innovative solutions.
             </p>
             <p className="text-md text-gray-600 text-center leading-relaxed mb-4">
                <p> Lead Coach at Include IT. With over 3 years of experience in programming and teaching, Saikat specializes in C++, DSA, and Web & App Development.</p>

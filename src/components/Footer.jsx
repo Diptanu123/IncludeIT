@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 animate-fadeIn">
           <div className="text-center md:text-left">
             <h3 className="text-3xl font-bold mb-2 text-cyan-500 hover:text-cyan-400 transition-colors duration-300">
-              IncludeIT
+              includeIT
             </h3>
             <p className="text-lg text-gray-400 mb-4">
               Empowering students with practical skills in tech, leadership, and

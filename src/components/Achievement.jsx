@@ -26,7 +26,7 @@ export default function Achievements() {
 
           {/* Achievement 3 */}
           <div className="relative bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-300">
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
+            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-purple-500 text-white text-xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               10 LPA
             </div>
             <h3 className="text-2xl font-semibold mt-10">Average Package</h3>
@@ -34,22 +34,22 @@ export default function Achievements() {
           </div>
 
           {/* Achievement 4 */}
-          <div className="relative bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-400">
+          {/* <div className="relative bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-400">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               20+
             </div>
             <h3 className="text-2xl font-semibold mt-10">Industry Partners</h3>
             <p className="mt-2 text-gray-700">We collaborate with over 20 top industry partners to ensure high-quality education.</p>
-          </div>
+          </div> */}
 
           {/* Achievement 5 */}
-          <div className="relative bg-gradient-to-r from-green-50 to-green-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-500">
+          {/* <div className="relative bg-gradient-to-r from-green-50 to-green-100 rounded-xl shadow-xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-2xl group animate-fadeInUp delay-500">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-2xl font-bold rounded-full w-16 h-16 flex items-center justify-center group-hover:animate-bounce">
               5+
             </div>
             <h3 className="text-2xl font-semibold mt-10">Global Certifications</h3>
             <p className="mt-2 text-gray-700">Our curriculum includes globally recognized certifications.</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
