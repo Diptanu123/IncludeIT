@@ -13,11 +13,11 @@ const About = () => {
           transition={{ duration: 1 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-indigo-600">IncludeIT</span>
+            About <span className="text-indigo-600">includeIT</span>
           </h2>
 
           <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed">
-            At <span className="text-indigo-600 font-semibold">IncludeIT</span>, we empower aspiring tech enthusiasts and finance professionals with industry-relevant skills. Our curriculum covers <span className="text-blue-500">C/C++, DSA, Web Development, App Development, Python, Data Analysis, Machine Learning</span>, and even <span className="text-blue-500">Stock Market and Financial Literacy</span>.
+            At <span className="text-indigo-600 font-semibold">includeIT</span>, we empower aspiring tech enthusiasts and finance professionals with industry-relevant skills. Our curriculum covers <span className="text-blue-500">C/C++, DSA, Web Development, App Development, Python, Data Analysis, Machine Learning</span>, and even <span className="text-blue-500">Stock Market and Financial Literacy</span>.
           </p>
           <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed">
             Our goal is simple: enable every student to achieve their dreams. With hands-on projects, personalized mentorship, and real-world applications, we ensure you're industry-ready from day one.
@@ -36,7 +36,7 @@ const About = () => {
         >
           <img 
             src="It.jpeg" 
-            alt="About IncludeIT"
+            alt="About includeIT"
             className="rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           />
         </motion.div>

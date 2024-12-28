@@ -56,7 +56,7 @@ export default function Navbar() {
               className="h-10 w-auto"
             />
             <span className="text-3xl font-extrabold text-indigo-600 tracking-wide">
-              Include<span className="text-gray-800">IT</span>
+              include<span className="text-gray-800">IT</span>
             </span>
           </div>
 
