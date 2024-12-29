@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Import axios for API call
+// import dotenv from "dotenv"
+// dotenv.config();
 
 function EnrollPage() {
   const [status, setStatus] = useState(""); // For showing success/error messages
@@ -17,9 +19,9 @@ function EnrollPage() {
       batch: e.target.batch.value,
       message: e.target.message.value,
     };
-
+  console.log(import.meta.env.VITE_API_DOMAIN);
     try {
-      const response = await axios.post("http://localhost:5000/api/enroll", formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_DOMAIN}/api/enroll`, formData);
       if (response.status === 201) {
         setStatus("Registration successful!");
         e.target.reset(); // Clear the form fields after submission
