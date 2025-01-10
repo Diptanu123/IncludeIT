@@ -22,7 +22,7 @@ function GalleryPage() {
     <div className="bg-gradient-to-r from-blue-50 to-indigo-100 text-indigo-700 min-h-screen py-12">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <h2 className="text-4xl font-bold text-center mb-12">Gallery</h2>
-        <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
+        {/* <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
           {images.map((image, index) => (
             <div
               key={index}
@@ -35,7 +35,7 @@ function GalleryPage() {
               />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
