@@ -3,7 +3,7 @@ import coachImage from '/1702989116329.jpeg'; // Ensure the image is in the publ
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-gradient-to-br from-white to-gray-100 py-16 overflow-hidden">
+    <section id="contact" className="bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 py-16 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Title */}
         <h2 className="text-5xl font-extrabold text-center text-gray-800 mb-16 animate-fade-down">

@@ -14,7 +14,6 @@ const images = [
 "https://picsum.photos/300/350",
 "https://picsum.photos/200/200",
 "https://picsum.photos/250/250",
-"/FRONTEND/public/assets/logo.jpeg",
 ];
 
 function GalleryPage() {

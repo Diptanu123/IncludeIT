@@ -1,75 +1,139 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { BookOpen, Users, Target, ChevronRight } from 'lucide-react';
 
-const About = () => {
+export default function AboutSection() {
+  const fadeInUp = {
+    initial: { y: 30, opacity: 0 },
+    whileInView: { y: 0, opacity: 1 },
+    viewport: { once: true },
+    transition: { duration: 0.8 }
+  };
+
+  const features = [
+    {
+      icon: BookOpen,
+      title: "Industry-Focused Curriculum",
+      description: "Master cutting-edge technologies and financial strategies crafted by NITians with real-world expertise.",
+      bgColor: "from-blue-50 to-indigo-50"
+    },
+    {
+      icon: Target,
+      title: "Hands-On Learning",
+      description: "Build your portfolio with practical projects and real-world applications guided by industry experts.",
+      bgColor: "from-indigo-50 to-purple-50"
+    },
+    {
+      icon: Users,
+      title: "Personalized Mentorship",
+      description: "Receive dedicated guidance through one-on-one sessions and comprehensive doubt-clearing support.",
+      bgColor: "from-purple-50 to-blue-50"
+    }
+  ];
+
   return (
-    <section id="about" className="bg-gradient-to-br from-cyan-50 to-white border-gray-200 text-gray-800 py-12 px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Left Content */}
-        <motion.div 
-          className="md:w-1/2"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-indigo-600">includeIT</span>
-          </h2>
-
-          <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed">
-            At <span className="text-indigo-600 font-semibold">includeIT</span>, we empower aspiring tech enthusiasts and finance professionals with industry-relevant skills. Our curriculum covers <span className="text-blue-500">C/C++, DSA, Web Development, App Development, Python, Data Analysis, Machine Learning</span>, and even <span className="text-blue-500">Stock Market and Financial Literacy</span>.
-          </p>
-          <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed">
-            Our goal is simple: enable every student to achieve their dreams. With hands-on projects, personalized mentorship, and real-world applications, we ensure you're industry-ready from day one.
-          </p>
-          <button className="mt-4 px-6 py-3 bg-indigo-600 hover:bg-blue-600 rounded-md text-white font-semibold transition-transform transform hover:scale-105 duration-300 shadow-md">
-            Learn More
-          </button>
-        </motion.div>
-
-        {/* Right Image */}
-        <motion.div 
-          className="md:w-1/2 flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <img 
-            src="It.jpeg" 
-            alt="About includeIT"
-            className="rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          />
-        </motion.div>
+    <div id="about" className="relative bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-36 h-36 md:w-72 md:h-72 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute bottom-0 left-0 w-36 h-36 md:w-72 md:h-72 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
       </div>
 
-      {/* Highlights Section */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+      <div className="max-w-7xl mx-auto py-16 lg:py-32 px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          {/* Text Content */}
+          <motion.div 
+            className="lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-extrabold mb-6"
+              variants={fadeInUp}
+            >
+              About{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">
+                includeIT
+              </span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-lg text-gray-700 leading-relaxed mb-6"
+              variants={fadeInUp}
+            >
+              At <span className="font-semibold text-indigo-600">includeIT</span>, we bring you a comprehensive learning experience designed and delivered by NITians. Our curriculum spans across modern technology and finance, including{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-semibold">
+                C/C++, DSA, Web Development, App Development, Python, Data Analysis, Machine Learning
+              </span>{" "}
+              and{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 font-semibold">
+                Stock Market & Financial Literacy
+              </span>.
+            </motion.p>
+
+            <motion.p 
+              className="text-lg text-gray-700 leading-relaxed mb-8"
+              variants={fadeInUp}
+            >
+              Our mission is to transform passionate learners into industry-ready professionals through practical experience, personalized mentorship, and real-world projects.
+            </motion.p>
+
+            <motion.button
+              className="group px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center"
+              variants={fadeInUp}
+            >
+              Discover More
+              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </motion.div>
+
+          {/* Image Section */}
+          <motion.div
+            className="lg:w-1/2"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative group">
+              <div className="absolute inset-0 bg-indigo-600 rounded-2xl rotate-6 transform group-hover:rotate-12 transition-transform duration-300"></div>
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="It.jpeg"
+                  alt="About includeIT"
+                  className="w-full h-[400px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent group-hover:from-indigo-900/60 transition-colors duration-300"></div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Features Grid */}
         <motion.div 
-          whileHover={{ scale: 1.05 }} 
-          className="p-6 bg-pink-50 rounded-md shadow-md border border-gray-200 hover:shadow-xl hover:bg-pink-100 transition duration-300"
+          className="grid md:grid-cols-3 gap-8 mt-24"
+          variants={fadeInUp}
         >
-          <h3 className="text-xl font-semibold text-blue-500">🚀 Industry-Focused Curriculum</h3>
-          <p className="text-gray-600 mt-2">Learn the latest technologies and financial strategies designed by industry experts.</p>
-        </motion.div>
-        <motion.div 
-          whileHover={{ scale: 1.05 }} 
-          className="p-6 bg-yellow-50 rounded-md shadow-md border border-gray-200 hover:shadow-xl hover:bg-yellow-100 transition duration-300"
-        >
-          <h3 className="text-xl font-semibold text-blue-500">💼 Hands-On Projects</h3>
-          <p className="text-gray-600 mt-2">Work on real-world projects to gain practical experience.</p>
-        </motion.div>
-        <motion.div 
-          whileHover={{ scale: 1.05 }} 
-          className="p-6 bg-teal-50 rounded-md shadow-md border border-gray-200 hover:shadow-xl hover:bg-teal-100 transition duration-300"
-        >
-          <h3 className="text-xl font-semibold text-blue-500">🤝 Personalized Support</h3>
-          <p className="text-gray-600 mt-2">Get one-on-one mentoring and regular doubt-clearing sessions.</p>
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className={`p-8 rounded-2xl bg-gradient-to-br ${feature.bgColor} backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300`}
+              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <feature.icon className="w-12 h-12 text-indigo-600 mb-6" />
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+              <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Testimonials Section */}
-    </section>
+    </div>
   );
-};
-
-export default About;
+}
