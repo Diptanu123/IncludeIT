@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import * as jwtDecode from "jwt-decode";
 
-// Asynchronous action for logout
 export const logout = createAsyncThunk("auth/logout", async () => {
-  // Add any logout logic here (e.g., clearing tokens, API calls)
-  localStorage.removeItem("token"); // If you're using token-based authentication
-  return null; // Optionally, you can return any data needed for the state
+  localStorage.removeItem("token");
+  return null;
 });
 
 const initialState = {
@@ -12,18 +11,44 @@ const initialState = {
   user: null,
 };
 
+const initializeStateFromToken = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    try {
+      const decodedToken = jwtDecode.jwtDecode(token);
+      return {
+        isAuthenticated: true,
+        user: {
+          name: decodedToken.name || null,
+          college: decodedToken.college || null,
+          userid: decodedToken.userid || null,
+        },
+      };
+    } catch (error) {
+      console.error("Token decode error:", error);
+      localStorage.removeItem("token");
+    }
+  }
+  return initialState;
+};
+
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: initializeStateFromToken(),
   reducers: {
     loginSuccess: (state, action) => {
+      const { token, userData } = action.payload;
+      localStorage.setItem("token", token);
       state.isAuthenticated = true;
-      state.user = action.payload;
+      state.user = {
+        name: userData.name || null,
+        college: userData.college || null,
+        userid: userData.userid || null,
+      };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(logout.fulfilled, (state) => {
-      // Reset state on successful logout
       state.isAuthenticated = false;
       state.user = null;
     });

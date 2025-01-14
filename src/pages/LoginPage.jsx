@@ -11,20 +11,32 @@ function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setStatus("");
+    
     const loginData = {
       userid: e.target.userid.value,
       password: e.target.password.value,
     };
-
+  
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_DOMAIN}/api/login`, loginData);
-      if (response.status === 200) {
-        // Include user data in loginSuccess action
+      
+      if (response.data && response.data.data) {
+        // Extract user data from the nested response structure
+        const userData = response.data.data.userData;
+        const token = response.data.data.token;
+  
+        // Dispatch login action with token and user data
         dispatch(loginSuccess({ 
-          id: response.data.id,
-          userid: loginData.userid,
-          // Add any other user data you want to store
+          token,
+          userData: {
+            name: userData.name,
+            college: userData.college,
+            userid: userData.userid,
+            email: userData.email
+          }
         }));
+  
         setStatus("Login successful!");
         setTimeout(() => navigate("/"), 1000);
       }
@@ -34,6 +46,7 @@ function LoginPage() {
     }
   };
 
+  
   return (
     <div className="bg-gradient-to-b from-blue-50 to-indigo-100 text-gray-900 py-20 min-h-screen flex items-center">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
@@ -70,7 +83,15 @@ function LoginPage() {
               >
                 Login
               </button>
-              {status && <p className="mt-4 text-sm text-center text-red-500">{status}</p>}
+              {status && (
+                <div className={`mt-4 p-3 rounded-lg text-sm text-center ${
+                  status === "Login successful!" 
+                    ? "bg-green-100 text-green-700" 
+                    : "bg-red-100 text-red-700"
+                }`}>
+                  {status}
+                </div>
+              )}
             </form>
             <p className="mt-6 text-center text-gray-600">
               Not enrolled?{" "}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Users, DollarSign, Trophy, Rocket } from 'lucide-react';
+import { Award, Users, IndianRupee ,Trophy, Rocket } from 'lucide-react';
+
 
 export default function Achievements() {
   const achievements = [
@@ -21,7 +22,7 @@ export default function Achievements() {
       bgGradient: "from-indigo-50 to-purple-50"
     },
     {
-      icon: DollarSign,
+      icon:IndianRupee,
       number: "10 LPA",
       title: "Average Package",
       description: "Impressive compensation packages",
