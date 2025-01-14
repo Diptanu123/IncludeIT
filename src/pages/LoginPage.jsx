@@ -38,7 +38,7 @@ function LoginPage() {
         }));
   
         setStatus("Login successful!");
-        setTimeout(() => navigate("/"), 1000);
+        setTimeout(() => navigate("/profile"), 1000);
       }
     } catch (error) {
       console.error("Login error:", error);

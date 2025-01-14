@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, Home, Info, BookOpen, PhoneCall, Sparkles } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux'; 
 import { logout } from '../redux/authSlice'; 
-import {User}  from 'lucide-react';
+import {User} from 'lucide-react';
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false); 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);// Authentication state
+  const [isNavigating, setIsNavigating] = useState(false);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch(); // Add dispatch
-
+  const dispatch = useDispatch();
   
   const navItems = [
     { name: 'Home', icon: Home, target: 'home' },
@@ -23,28 +23,51 @@ export default function Navbar() {
     { name: 'Contact', icon: PhoneCall, target: 'contact' },
   ];
 
-  const handleNavigation = (target) => {
-    if (location.pathname === '/') {
-      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/');
+  const scrollToElement = useCallback((elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      // Add a small delay to ensure DOM is ready
       setTimeout(() => {
-        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        setIsNavigating(false);
       }, 100);
     }
+  }, []);
+
+  const handleNavigation = useCallback(async (target) => {
+    if (isNavigating) return; // Prevent multiple navigation attempts
+    setIsNavigating(true);
+    
+    // Close mobile menu first
     setIsMobileMenuOpen(false);
-  };
+
+    try {
+      if (location.pathname !== '/') {
+        // If we're not on the homepage, navigate there first
+        await navigate('/');
+        // Wait for navigation and then scroll
+        setTimeout(() => scrollToElement(target), 100);
+      } else {
+        // If we're already on the homepage, just scroll
+        scrollToElement(target);
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+      setIsNavigating(false);
+    }
+  }, [navigate, location.pathname, scrollToElement, isNavigating]);
 
   const handleLogOut = () => {
-    // Simulate log-out process
-   
     dispatch(logout());
-    navigate('/login'); // Redirect to login page
-    
+    navigate('/login');
   };
+
   const handleProfileClick = () => {
-    navigate('/profile');
     setIsMobileMenuOpen(false);
+    navigate('/profile');
   };
 
   useEffect(() => {
@@ -55,6 +78,11 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Reset navigation state when location changes
+  useEffect(() => {
+    setIsNavigating(false);
+  }, [location.pathname]);
 
   return (
     <header>
@@ -68,10 +96,11 @@ export default function Navbar() {
             : 'bg-gradient-to-r from-indigo-600/80 via-indigo-500/80 to-blue-600/80 backdrop-blur-md'
         }`}
       >
+        {/* Rest of the nav content remains the same */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo Section */}
-            <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+            <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.02 }}>
               <div className="relative">
                 <motion.img
                   src="logo.png"
@@ -90,7 +119,7 @@ export default function Navbar() {
               <div className="relative group">
                 <span className="text-2xl font-extrabold tracking-tight">
                   <span className="text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 transition-all duration-300">
-                    include
+                    Include
                   </span>
                   <span className="text-blue-200">IT</span>
                 </span>
@@ -110,9 +139,9 @@ export default function Navbar() {
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavigation(item.target)}
-                  className="relative px-4 py-2 text-blue-100 hover:text-white font-medium rounded-lg group"
+                  disabled={isNavigating}
+                  className="relative px-4 py-2 text-blue-100 hover:text-white font-medium rounded-lg group disabled:opacity-50"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <item.icon className="w-4 h-4" />
@@ -122,33 +151,30 @@ export default function Navbar() {
                     className="absolute inset-0 bg-white/10 rounded-lg -z-0"
                     initial={{ scale: 0 }}
                     whileHover={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   />
                 </motion.button>
               ))}
 
+              {/* Authentication buttons */}
               {isAuthenticated ? (
-                <>
-                 <div className="flex items-center space-x-4">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    className="relative px-6 py-2 bg-white text-blue-500 text-xl font-medium rounded-xl shadow-md flex items-center space-x-2 hover:bg-blue-50 transition-all"
-    onClick={handleProfileClick} // Updated handler
-  >
-    <User size={32} className="text-blue-600" />
-    <span>Profile</span>
-  </motion.button>
-  
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    className="relative px-6 py-2 bg-red-500 text-white text-xl font-medium rounded-xl shadow-md flex items-center space-x-2 hover:bg-red-600 transition-all"
-    onClick={handleLogOut}
-  >
-    <span>Log Out</span>
-  </motion.button>
-</div>
-
-                </>
+                <div className="flex items-center space-x-4">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    className="relative px-6 py-2 bg-white text-blue-500 text-xl font-medium rounded-xl shadow-md flex items-center space-x-2 hover:bg-blue-50 transition-all"
+                    onClick={handleProfileClick}
+                  >
+                    <User size={32} className="text-blue-600" />
+                    <span>Profile</span>
+                  </motion.button>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    className="relative px-6 py-2 bg-red-500 text-white text-xl font-medium rounded-xl shadow-md flex items-center space-x-2 hover:bg-red-600 transition-all"
+                    onClick={handleLogOut}
+                  >
+                    <span>Log Out</span>
+                  </motion.button>
+                </div>
               ) : (
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="ml-2">
                   <Link
@@ -163,7 +189,6 @@ export default function Navbar() {
                       className="absolute inset-0 bg-gradient-to-r from-indigo-50 to-blue-50 -z-0"
                       initial={{ x: '100%' }}
                       whileHover={{ x: 0 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     />
                   </Link>
                 </motion.div>
@@ -198,9 +223,9 @@ export default function Navbar() {
                   <motion.button
                     key={item.name}
                     onClick={() => handleNavigation(item.target)}
-                    className="w-full px-4 py-3 flex items-center gap-3 text-blue-100 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                    disabled={isNavigating}
+                    className="w-full px-4 py-3 flex items-center gap-3 text-blue-100 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50"
                     whileHover={{ x: 8 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   >
                     <item.icon className="w-5 h-5" />
                     {item.name}
@@ -208,13 +233,13 @@ export default function Navbar() {
                 ))}
                 {isAuthenticated ? (
                   <>
-                      <motion.button
-    whileHover={{ scale: 1.05 }}
-    className="w-full px-6 py-3 bg-white text-blue-500 text-2xl font-medium rounded-xl shadow-md hover: transition-all"
-    onClick={handleProfileClick} // Updated handler
-  >
-    Profile
-  </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      className="w-full px-6 py-3 bg-white text-blue-500 text-2xl font-medium rounded-xl shadow-md hover:bg-blue-50 transition-all"
+                      onClick={handleProfileClick}
+                    >
+                      Profile
+                    </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       className="mt-2 w-full px-6 py-3 bg-red-500 text-white text-2xl font-medium rounded-xl shadow-md hover:bg-red-600 transition-all"
@@ -227,7 +252,7 @@ export default function Navbar() {
                   <motion.div className="pt-2">
                     <Link
                       to="/login"
-                      className="w-full px-6 py-3 bg-white text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 font-medium rounded-xl shadow-md flex items-center justify-center gap-2 group"
+                      className="w-full px-6 py-3 bg-white text-white bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600 font-medium rounded-xl shadow-md flex items-center justify-center gap-2 group"
                     >
                       Enroll Now
                       <ChevronRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
