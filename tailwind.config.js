@@ -22,12 +22,16 @@ export default {
           to: { 'background-position': '-200% center' },
         },
       },
-      animation: {
-        blob: 'blob 7s infinite',
-        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        shine: 'shine 3s linear infinite',
+      spin: {
+        '0%': { transform: 'rotate(0deg)' },
+        '100%': { transform: 'rotate(360deg)' },
       },
     },
-  },
+    animation: {
+      spin: 'spin 2s linear infinite',
+    },
+      
+    },
+
   plugins: [],
 };

@@ -29,7 +29,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
 
-  // Redirect to login if not authenticated
+  
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
   };
 
   const handleDownload = (filename) => {
-    // Implement actual download logic here
+    
     console.log(`Downloading ${filename}`);
   };
 

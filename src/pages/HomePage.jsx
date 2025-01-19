@@ -14,12 +14,12 @@ const HomePage = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Simulated loading time
+   
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
 
-    // Scroll progress handler
+   
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const currentProgress = (window.scrollY / totalScroll) * 100;

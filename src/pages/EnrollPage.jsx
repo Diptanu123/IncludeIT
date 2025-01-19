@@ -32,7 +32,7 @@ function EnrollPage() {
 
       console.log('Response:', response); // For debugging
 
-      // Check if the registration was successful
+     
       if (response.data.status) {
         toast.success(response.data.message || "Registration successful! Redirecting...", {
           position: "top-center",
