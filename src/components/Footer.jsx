@@ -6,7 +6,8 @@ import {
   FaTwitter, 
   FaMapMarkerAlt, 
   FaPhone, 
-  FaEnvelope 
+  FaEnvelope,
+  FaGithub
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -23,6 +24,11 @@ const Footer = () => {
       }
     }
   };
+
+  const creators = [
+    { name: "Dip", github: "https://github.com/Diptanu123" },
+    { name: "Dhriti", github: "https://github.com/Dhritiman1511" }
+  ];
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
@@ -114,10 +120,28 @@ const Footer = () => {
           className="mt-12 pt-8 border-t border-gray-700"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © 2024 INCLUDE-IT. All Rights Reserved. Created by{" "}
-              <span className="text-cyan-500 font-semibold">Dip & Dhriti</span>
-            </p>
+            <div className="text-gray-400 text-sm space-y-2">
+              <p>© 2024 INCLUDE-IT. All Rights Reserved.</p>
+              <div className="flex items-center flex-wrap gap-2">
+                <span>Created by</span>
+                {creators.map((creator, index) => (
+                  <React.Fragment key={creator.name}>
+                    <motion.a
+                      href={creator.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/10 rounded-full text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/20 transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <span className="font-semibold">{creator.name}</span>
+                      <FaGithub className="text-sm" />
+                    </motion.a>
+                    {index === creators.length - 1 ? null : <span>&</span>}
+                  </React.Fragment>
+                ))}
+                <span className="text-gray-400">(Students of IncludeIT)</span>
+              </div>
+            </div>
             <div className="flex space-x-6">
               {["Privacy Policy", "Terms of Service", "FAQ"].map((link) => (
                 <a
