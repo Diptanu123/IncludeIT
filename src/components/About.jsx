@@ -102,9 +102,9 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-indigo-600 rounded-2xl rotate-6 transform group-hover:rotate-12 transition-transform duration-300"></div>
               <div className="relative overflow-hidden rounded-2xl">
                 <img
-                  src="It.jpeg"
+                  src="saikatimg.jpeg"
                   alt="About includeIT"
-                  className="w-full h-[400px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-[400px] object-cover brightness-125 transform group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent group-hover:from-indigo-900/60 transition-colors duration-300"></div>
               </div>
