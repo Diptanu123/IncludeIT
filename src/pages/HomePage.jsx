@@ -53,7 +53,7 @@ const HomePage = () => {
           }}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">
-            includeIT
+            IncludeIT
           </span>
         </motion.div>
       </div>

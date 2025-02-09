@@ -102,7 +102,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-indigo-600 rounded-2xl rotate-6 transform group-hover:rotate-12 transition-transform duration-300"></div>
               <div className="relative overflow-hidden rounded-2xl">
                 <img
-                  src="public\It.jpeg"
+                  src="/It.jpeg"
                   alt="About includeIT"
                   className="w-full h-[400px] object-cover brightness-125 transform group-hover:scale-110 transition-transform duration-700"
                 />
