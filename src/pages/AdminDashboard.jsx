@@ -175,6 +175,74 @@ const AdminDashboard = () => {
               </motion.div>
             ))}
           </div>
+          
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(filteredCourseData).map(([section, items], sectionIndex) => (
+              <motion.div
+                key={section}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: sectionIndex * 0.2 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              >
+                <div
+                  className={`p-6 cursor-pointer transition-colors ${
+                    activeSection === section ? 'bg-blue-50' : 'hover:bg-gray-50'
+                  }`}
+                  onClick={() => setActiveSection(section)}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      {section === 'dsa' && <Database className="w-6 h-6 text-blue-600 mr-3" />}
+                      {section === 'python' && <Code className="w-6 h-6 text-blue-600 mr-3" />}
+                      {section === 'fundamentals' && <Terminal className="w-6 h-6 text-blue-600 mr-3" />}
+                      <h2 className="text-xl font-semibold text-gray-800 capitalize">{section}</h2>
+                    </div>
+                    <ChevronDown
+                      className={`w-5 h-5 text-gray-500 transform transition-transform ${
+                        activeSection === section ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </div>
+                </div>
+
+                {activeSection === section && items.length > 0 && (
+                  <div className="p-4">
+                    {items.map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex flex-col p-4 hover:bg-gray-50 rounded-lg mb-2"
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="font-medium text-gray-800">{item.title}</h3>
+                          <button
+                            onClick={() => handleDownload(item.filename)}
+                            className="flex items-center text-blue-600 hover:text-blue-700"
+                          >
+                            <Download className="w-4 h-4 mr-1" />
+                            <span>Download</span>
+                          </button>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {activeSection === section && items.length === 0 && (
+                  <div className="p-8 text-center text-gray-500">
+                    No matching courses found
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+          
         </div>
       </div>
     </div>
