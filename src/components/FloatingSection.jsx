@@ -1,5 +1,3 @@
-
-
 const FloatingSection = () => {
   const phoneNumber = '+917085959167'; 
 
