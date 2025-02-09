@@ -56,7 +56,7 @@ export default function AboutSection() {
             >
               About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">
-                includeIT
+                IncludeIT
               </span>
             </motion.h2>
             
@@ -64,7 +64,7 @@ export default function AboutSection() {
               className="text-lg text-gray-700 leading-relaxed mb-6"
               variants={fadeInUp}
             >
-              At <span className="font-semibold text-indigo-600">includeIT</span>, we bring you a comprehensive learning experience designed and delivered by NITians. Our curriculum spans across modern technology and finance, including{" "}
+              At <span className="font-semibold text-indigo-600">IncludeIT</span>, we bring you a comprehensive learning experience designed and delivered by NITians. Our curriculum spans across modern technology and finance, including{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-semibold">
                 C/C++, DSA, Web Development, App Development, Python, Data Analysis, Machine Learning
               </span>{" "}
@@ -102,7 +102,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-indigo-600 rounded-2xl rotate-6 transform group-hover:rotate-12 transition-transform duration-300"></div>
               <div className="relative overflow-hidden rounded-2xl">
                 <img
-                  src="saikatimg.jpeg"
+                  src="public\It.jpeg"
                   alt="About includeIT"
                   className="w-full h-[400px] object-cover brightness-125 transform group-hover:scale-110 transition-transform duration-700"
                 />
