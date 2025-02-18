@@ -12,7 +12,8 @@ import {
   User, 
   School, 
   Hash,
-  BookOpen
+  BookOpen,
+  CodeIcon // Add this import for CodeEditor button
 } from 'lucide-react';
 import { logout } from '../redux/authSlice';
 
@@ -33,6 +34,11 @@ const AdminDashboard = () => {
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
+
+  
+  const handleNavigateToCodeEditor = () => {
+    navigate('/editor');
+  };
 
   const courseData = {
     dsa: [
@@ -103,6 +109,13 @@ const AdminDashboard = () => {
                     <Hash className="w-5 h-5 mr-2" />
                     <span>ID: {user.userid}</span>
                   </div>
+                  <button 
+                    onClick={handleNavigateToCodeEditor}
+                    className="flex items-center justify-center bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg transition-all shadow-md hover:shadow-lg group"
+                  >
+                    <Code className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
+                    <span className="font-medium">Open Code Editor</span>
+                  </button>
                 </div>
               </div>
             </div>

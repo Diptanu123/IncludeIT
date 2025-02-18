@@ -7,6 +7,7 @@ import GalleryPage from './pages/GalleryPage';
 import ThankYouPage from './pages/ThankYouPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
+import CodeEditor from './pages/CodeEditor.jsx';
 function App() {
   return (
   <>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/gallery' element= {<GalleryPage/>} />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/profile" element={<AdminDashboard/>}/>
+          <Route path="/editor" element={<CodeEditor/>}/>
         </Routes>
       </BrowserRouter>
   </>
