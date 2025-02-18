@@ -11,6 +11,43 @@ const CodeEditor = () => {
   const [output, setOutput] = useState('');
   const [language, setLanguage] = useState('cpp');
   const [isLoading, setIsLoading] = useState(false);
+  const [savedCodes, setSavedCodes] = useState([]);
+  const [codeName, setCodeName] = useState('');
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [selectedCodeId, setSelectedCodeId] = useState('new');
+
+ 
+  useEffect(() => {
+    const loadSavedCodes = () => {
+      const savedData = localStorage.getItem('savedCodes');
+      if (savedData) {
+        try {
+          const codes = JSON.parse(savedData);
+          setSavedCodes(codes);
+        } catch (e) {
+          console.error('Failed to parse saved codes:', e);
+        }
+      }
+    };
+    loadSavedCodes();
+  }, []);
+
+ 
+  useEffect(() => {
+    const loadLastSavedCode = () => {
+      const lastSession = localStorage.getItem('lastCodeSession');
+      if (lastSession) {
+        try {
+          const session = JSON.parse(lastSession);
+          setCode(session.code);
+          setLanguage(session.language);
+        } catch (e) {
+          console.error('Failed to load last session:', e);
+        }
+      }
+    };
+    loadLastSavedCode();
+  }, []);
 
   useEffect(() => {
     const isDefaultCode = Object.values(DEFAULT_CODE).some(defaultCode => 
@@ -21,6 +58,15 @@ const CodeEditor = () => {
       setCode(DEFAULT_CODE[language]);
     }
   }, [language, code]);
+
+  
+  useEffect(() => {
+    localStorage.setItem('lastCodeSession', JSON.stringify({
+      code,
+      language,
+      timestamp: new Date().toISOString()
+    }));
+  }, [code, language]);
 
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
@@ -76,6 +122,61 @@ const CodeEditor = () => {
     return extensions[lang];
   };
 
+  const handleSaveClick = () => {
+    setShowSaveDialog(true);
+  };
+
+  const handleSaveCode = () => {
+    if (!codeName.trim()) {
+      setOutput("Error: Please enter a name for your code");
+      return;
+    }
+
+    const newCode = {
+      id: Date.now().toString(),
+      name: codeName,
+      language,
+      code,
+      lastModified: new Date().toISOString()
+    };
+
+    const updatedCodes = [...savedCodes, newCode];
+    setSavedCodes(updatedCodes);
+    localStorage.setItem('savedCodes', JSON.stringify(updatedCodes));
+    
+    setCodeName('');
+    setShowSaveDialog(false);
+    setOutput(`Code "${codeName}" has been saved successfully!`);
+  };
+
+  const handleLoadCode = (e) => {
+    const codeId = e.target.value;
+    setSelectedCodeId(codeId);
+    
+    if (codeId === 'new') return;
+
+    const savedCode = savedCodes.find(c => c.id === codeId);
+    if (savedCode) {
+      setCode(savedCode.code);
+      setLanguage(savedCode.language);
+      setOutput(`Loaded code: ${savedCode.name}`);
+    }
+  };
+
+  const handleDeleteCode = () => {
+    if (selectedCodeId === 'new') {
+      setOutput("Error: No code selected for deletion");
+      return;
+    }
+
+    const updatedCodes = savedCodes.filter(c => c.id !== selectedCodeId);
+    setSavedCodes(updatedCodes);
+    localStorage.setItem('savedCodes', JSON.stringify(updatedCodes));
+    
+    setSelectedCodeId('new');
+    setOutput(`Code has been deleted successfully!`);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pt-20 pb-8 px-2 sm:px-6 lg:px-8 flex flex-col">
       <div className="w-full max-w-4xl mx-auto flex-grow flex flex-col">
@@ -94,15 +195,82 @@ const CodeEditor = () => {
               <option value="cpp">C++</option>
               <option value="python">Python</option>
             </select>
-            <button
-              onClick={handleRun}
-              disabled={isLoading}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm"
-            >
-              {isLoading ? 'Running...' : 'Run Code'}
-            </button>
+            
+            <div className="flex gap-2 flex-grow justify-between">
+              <div className="flex gap-2">
+                <button
+                  onClick={handleRun}
+                  disabled={isLoading}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm"
+                >
+                  {isLoading ? 'Running...' : 'Run Code'}
+                </button>
+                
+                <button
+                  onClick={handleSaveClick}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors duration-200 text-sm"
+                >
+                  Save Code
+                </button>
+              </div>
+              
+              <div className="flex gap-2 items-center">
+                {savedCodes.length > 0 && (
+                  <>
+                    <select
+                      value={selectedCodeId}
+                      onChange={handleLoadCode}
+                      className="px-3 py-2 border rounded-md bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                    >
+                      <option value="new">Load saved code...</option>
+                      {savedCodes.map(savedCode => (
+                        <option key={savedCode.id} value={savedCode.id}>
+                          {savedCode.name} ({savedCode.language})
+                        </option>
+                      ))}
+                    </select>
+                    
+                    {selectedCodeId !== 'new' && (
+                      <button
+                        onClick={handleDeleteCode}
+                        className="px-3 py-2 bg-red-600 text-white rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 text-sm"
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
           </div>
           
+          {showSaveDialog && (
+            <div className="px-4 sm:px-6 py-3 border-b border-gray-200 bg-gray-50">
+              <div className="flex items-center gap-3">
+                <label htmlFor="code-name" className="text-sm font-medium text-gray-700">Code Name:</label>
+                <input
+                  id="code-name"
+                  type="text"
+                  value={codeName}
+                  onChange={(e) => setCodeName(e.target.value)}
+                  className="flex-grow px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                  placeholder="Enter a name for your code"
+                />
+                <button
+                  onClick={handleSaveCode}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-sm"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => setShowSaveDialog(false)}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-sm"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
           
           <div className="flex-grow min-h-0">
             <Editor
