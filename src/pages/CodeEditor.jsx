@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 
 const DEFAULT_CODE = {
-  cpp: '#include <iostream>\n\nint main() {\n    std::cout << "Hello World!" << std::endl;\n    return 0;\n}',
+  cpp: '#include <iostream>\nusing namespace std;\nint main() {\n    cout << "Hello includeIT!" << std::endl;\n    return 0;\n}',
   python: 'print("Hello World!")'
 };
 
 const CodeEditor = () => {
   const [code, setCode] = useState(DEFAULT_CODE.cpp);
+  const [stdin, setStdin] = useState('');
   const [output, setOutput] = useState('');
   const [language, setLanguage] = useState('cpp');
   const [isLoading, setIsLoading] = useState(false);
@@ -91,7 +92,7 @@ const CodeEditor = () => {
               content: code,
             },
           ],
-          stdin: "",
+          stdin: stdin,
         }),
       });
 
@@ -290,16 +291,34 @@ const CodeEditor = () => {
               className="border-gray-200"
             />
           </div>
+
+          {output && (
+  <div className="px-4 sm:px-6 py-3 border-t border-gray-200">
+    <div className="mb-4">
+      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Input</h3>
+      <textarea
+        value={stdin}
+        onChange={(e) => setStdin(e.target.value)}
+        className="w-full bg-gray-50 p-3 rounded-md border border-gray-200 resize-y min-h-[100px] text-xs sm:text-sm"
+        placeholder="Enter input for your program..."
+      />
+    </div>
+    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Output</h3>
+    <pre className="bg-gray-50 p-3 rounded-md border border-gray-200 overflow-x-auto whitespace-pre-wrap text-xs sm:text-sm max-h-48 overflow-y-auto">
+      {output}
+    </pre>
+  </div>
+)}
           
         
-          {output && (
+          {/* {output && (
             <div className="px-4 sm:px-6 py-3 border-t border-gray-200">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Output</h3>
               <pre className="bg-gray-50 p-3 rounded-md border border-gray-200 overflow-x-auto whitespace-pre-wrap text-xs sm:text-sm max-h-48 overflow-y-auto">
                 {output}
               </pre>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
