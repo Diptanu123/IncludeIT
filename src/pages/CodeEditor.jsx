@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 
 const DEFAULT_CODE = {
+  c: '#include <stdio.h>\nint main() {\n    printf("Hello includeIT!");\n    return 0;\n}',
   cpp: '#include <iostream>\nusing namespace std;\nint main() {\n    cout << "Hello includeIT!" << std::endl;\n    return 0;\n}',
   python: 'print("Hello World!")'
 };
@@ -117,6 +118,7 @@ const CodeEditor = () => {
 
   const getFileExtension = (lang) => {
     const extensions = {
+      c: "c",
       cpp: "cpp",
       python: "py"
     };
@@ -193,6 +195,7 @@ const CodeEditor = () => {
               onChange={handleLanguageChange}
               className="px-3 py-2 border rounded-md bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
             >
+              <option value="c">C</option>
               <option value="cpp">C++</option>
               <option value="python">Python</option>
             </select>
@@ -325,7 +328,9 @@ const CodeEditor = () => {
   );
 };
 
+
 const LANGUAGE_VERSIONS = {
+  c: "10",
   cpp: "10.2.0",    
   python: "3.10.0" 
 };
