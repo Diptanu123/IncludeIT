@@ -1,15 +1,19 @@
 {
     "routes": [
       {
-        "src": "/assets/.*",
+        "src": "/assets/(.*)",
         "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
       },
       {
         "src": "/(.*)",
         "dest": "/index.html",
-        "status": 200
+        "status": 200,
+        "caseSensitive": false
       }
     ],
     "trailingSlash": false,
-    "cleanUrls": true
+    "cleanUrls": true,
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
   }
