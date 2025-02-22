@@ -1,11 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import Editor from "@monaco-editor/react";
+import { loader } from '@monaco-editor/react';
 
 const DEFAULT_CODE = {
   c: '#include <stdio.h>\nint main() {\n    printf("Hello includeIT!");\n    return 0;\n}',
   cpp: '#include <iostream>\nusing namespace std;\nint main() {\n    cout << "Hello includeIT!" << std::endl;\n    return 0;\n}',
   python: 'print("Hello World!")'
 };
+
+// Configure Monaco Editor loader
+loader.config({
+  paths: {
+    vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/min/vs'
+  }
+});
 
 const CodeEditor = () => {
   const [code, setCode] = useState(DEFAULT_CODE.cpp);
@@ -181,6 +189,25 @@ const CodeEditor = () => {
     setOutput(`Code has been deleted successfully!`);
   };
 
+  const handleEditorWillMount = (monaco) => {
+    monaco.editor.defineTheme('custom-dark', {
+      base: 'vs-dark',
+      inherit: true,
+      rules: [],
+      colors: {
+        'editor.background': '#1a1a1a',
+      }
+    });
+  };
+
+  const handleEditorDidMount = (editor, monaco) => {
+    // Enable smooth cursor animation
+    editor.updateOptions({
+      cursorSmoothCaretAnimation: true,
+      smoothScrolling: true,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 pt-20 sm:pt-20 pb-8 px-2 sm:px-6 lg:px-8">
       <div className="w-full max-w-6xl mx-auto flex-grow flex flex-col">
@@ -314,7 +341,10 @@ const CodeEditor = () => {
               language={language}
               value={code}
               onChange={(value) => setCode(value || "")}
-              theme="vs-dark"
+              theme="custom-dark"
+              beforeMount={handleEditorWillMount}
+              onMount={handleEditorDidMount}
+              loading={<div className="text-white text-center py-4">Loading editor...</div>}
               options={{
                 minimap: { enabled: false },
                 fontSize: 14,
@@ -327,6 +357,17 @@ const CodeEditor = () => {
                 cursorBlinking: 'smooth',
                 cursorSmoothCaretAnimation: true,
                 wordWrap: 'on',
+                formatOnPaste: true,
+                formatOnType: true,
+                tabSize: 2,
+                renderWhitespace: 'selection',
+                renderLineHighlight: 'all',
+                scrollbar: {
+                  vertical: 'visible',
+                  horizontal: 'visible',
+                  verticalScrollbarSize: 12,
+                  horizontalScrollbarSize: 12
+                }
               }}
               className="border-gray-700"
             />

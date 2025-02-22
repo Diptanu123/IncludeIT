@@ -9,9 +9,13 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'monaco-editor': ['@monaco-editor/react'],
-          'vendor': ['react', 'react-dom']
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('@monaco-editor')) {
+              return 'monaco-editor';
+            }
+            return 'vendor';
+          }
         }
       }
     }
@@ -26,5 +30,8 @@ export default defineConfig({
     fs: {
       strict: false
     }
+  },
+  define: {
+    'process.env': {}
   }
 })
