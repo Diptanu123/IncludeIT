@@ -10,12 +10,21 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'monaco-editor': ['@monaco-editor/react']
+          'monaco-editor': ['@monaco-editor/react'],
+          'vendor': ['react', 'react-dom']
         }
       }
     }
   },
   optimizeDeps: {
-    include: ['@monaco-editor/react']
+    include: ['@monaco-editor/react'],
+    esbuildOptions: {
+      target: 'es2020'
+    }
+  },
+  server: {
+    fs: {
+      strict: false
+    }
   }
 })
