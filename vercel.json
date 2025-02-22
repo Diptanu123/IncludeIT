@@ -7,12 +7,9 @@
       {
         "src": "/(.*)",
         "dest": "/index.html",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache, no-store, must-revalidate"
-          }
-        ]
+        "headers": { 
+          "Cache-Control": "no-cache, no-store, must-revalidate"
+        }
       }
     ],
     "trailingSlash": false,
