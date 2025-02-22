@@ -7,8 +7,12 @@
       {
         "src": "/(.*)",
         "dest": "/index.html",
-        "status": 200,
-        "caseSensitive": false
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       }
     ],
     "trailingSlash": false,
