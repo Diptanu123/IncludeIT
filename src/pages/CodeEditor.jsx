@@ -200,7 +200,7 @@ const CodeEditor = () => {
     });
   };
 
-  const handleEditorDidMount = (editor, monaco) => {
+  const handleEditorDidMount = (editor, _monaco) => {
     // Enable smooth cursor animation
     editor.updateOptions({
       cursorSmoothCaretAnimation: true,
