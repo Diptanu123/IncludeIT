@@ -59,7 +59,7 @@ export default function HeroSection() {
             variants={fadeInUp}
           >
             Empower your future with top-notch coaching and expert mentorship
-            from industry leaders at <strong>includeIT</strong>.
+            from industry leaders at <strong>IncludeIT</strong>.
           </motion.p>
 
           <motion.div
