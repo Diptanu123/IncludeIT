@@ -27,7 +27,8 @@ const Footer = () => {
 
   const creators = [
     { name: "Dip", github: "https://github.com/Diptanu123" },
-    { name: "Dhriti", github: "https://github.com/Dhritiman1511" }
+    { name: "Dhriti", github: "https://github.com/Dhritiman1511" },
+    { name: "Asmita", github: "https://github.com/asmi668" }
   ];
 
   return (
